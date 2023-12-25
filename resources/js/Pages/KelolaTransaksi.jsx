@@ -32,7 +32,7 @@ export default function KelolaTransaksi(props) {
                 console.log(transaction.status);
                 const data = {
                     status: 1,
-                    statusproses:0,
+                    statusproses: 0,
                 };
                 Inertia.put(`/transaksi/${transactionId}`, data);
                 window.location.reload();
@@ -55,76 +55,76 @@ export default function KelolaTransaksi(props) {
 
     return (
         <>
-        <Head title="Kelola Pesanan" />
-        <div className="flex flex-col md:flex-row">
-            <Sidebar />
-            <main className="w-full md:w-2/3 mx-auto lg:p-10 md:p-6 pl-0 flex flex-col justify-between h-auto">
-                <div className="container">
-                    <h1 className="text-left font-bold text-[48px] text-black mr-4">
-                        Kelola Pesanan
-                    </h1>
-                    <div className="mx-auto max-w-7xl gap-1 flex flex-wrap justify-between">
-                        {transactions.map((transaction) => {
-                            if (transaction.status === 1) {
-                                return null; // Tidak menampilkan transaksi dengan status 1
-                            }
-                            const product = getProductDetails(
-                                transaction.produk_id
-                            );
-                            return (
-                                <div
-                                    key={transaction.id}
-                                    className="bg-white rounded-lg shadow-md p-4 my-2 w-1/4"
-                                >
-                                    <img
-                                        src={product.gambar}
-                                        alt="gambar"
-                                        className="w-full"
-                                    />
-                                    <h2 className="text-3xl font-semibold text-gray-800 mb-2">
-                                        {product
-                                            ? product.name
-                                            : "Product Not Found"}
-                                    </h2>
-                                    <p className="text-3xl font-bold text-blue-500">
-                                        Rp. {transaction.total_harga}
-                                    </p>
-                                    <p className="text-xl font-bold text-gray-800">
-                                        catatan: {transaction.catatan}
-                                    </p>
-                                    <Link
-    href={`/bukti_pembayaran/${transaction.id}`} // Ganti dengan URL yang sesuai untuk menampilkan bukti pembayaran
-    className="text-blue-500 hover:underline justify-end flex"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Lihat Bukti Transaksi
-</Link>
-                                    <div className="justify-center gap-5  flex">
-                                        <button
-                                            className="bg-green-600 text-white p-2 font-bold rounded-md"
-                                            onClick={() =>
-                                                handleAccept(transaction.id)
-                                            }
+            <Head title="Kelola Pesanan" />
+            <div className="flex flex-col md:flex-row">
+                <Sidebar />
+                <main className="w-full md:w-2/3 mx-auto lg:p-10 md:p-6 pl-0 flex flex-col justify-between h-auto">
+                    <div className="container">
+                        <h1 className="text-left font-bold text-[48px] text-black mr-4">
+                            Kelola Pesanan
+                        </h1>
+                        <div className="mx-auto max-w-7xl gap-1 flex flex-wrap justify-between">
+                            {transactions.map((transaction) => {
+                                if (transaction.status === 1) {
+                                    return null; // Tidak menampilkan transaksi dengan status 1
+                                }
+                                const product = getProductDetails(
+                                    transaction.produk_id
+                                );
+                                return (
+                                    <div
+                                        key={transaction.id}
+                                        className="bg-white rounded-lg shadow-md p-4 my-2 w-1/4"
+                                    >
+                                        <img
+                                            src={product.gambar}
+                                            alt="gambar"
+                                            className="w-full"
+                                        />
+                                        <h2 className="text-3xl font-semibold text-gray-800 mb-2">
+                                            {product
+                                                ? product.name
+                                                : "Product Not Found"}
+                                        </h2>
+                                        <p className="text-3xl font-bold text-blue-500">
+                                            Rp. {transaction.total_harga}
+                                        </p>
+                                        <p className="text-xl font-bold text-gray-800">
+                                            catatan: {transaction.catatan}
+                                        </p>
+                                        <Link
+                                            href={`/bukti_pembayaran/${transaction.id}`} // Ganti dengan URL yang sesuai untuk menampilkan bukti pembayaran
+                                            className="text-blue-500 hover:underline justify-end flex"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                         >
-                                            Accept
-                                        </button>
-                                        <button
-                                            className="bg-red-700 text-white p-2 font-bold rounded-md"
-                                            onClick={() =>
-                                                handleReject(transaction.id)
-                                            }
-                                        >
-                                            Reject
-                                        </button>
+                                            Lihat Bukti Transaksi
+                                        </Link>
+                                        <div className="justify-center gap-5  flex">
+                                            <button
+                                                className="bg-green-600 text-white p-2 font-bold rounded-md"
+                                                onClick={() =>
+                                                    handleAccept(transaction.id)
+                                                }
+                                            >
+                                                Accept
+                                            </button>
+                                            <button
+                                                className="bg-red-700 text-white p-2 font-bold rounded-md"
+                                                onClick={() =>
+                                                    handleReject(transaction.id)
+                                                }
+                                            >
+                                                Reject
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            </main>
-        </div>
+                </main>
+            </div>
         </>
     );
 }
