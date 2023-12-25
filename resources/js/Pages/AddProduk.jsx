@@ -23,7 +23,7 @@ export default function AddProduk({ props, visible, onClose, options }) {
         formData.append('image', gambar);
 
         try {
-            const response = await fetch('https://api.imgbb.com/1/upload?key=8e6f029993635453c67071f5f258cd87', {
+            const response = await fetch('https://api.imgbb.com/1/upload?key=847628202533acf71ae3b9696d5ee86f', {
                 method: 'POST',
                 body: formData
             });

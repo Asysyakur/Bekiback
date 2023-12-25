@@ -12,7 +12,7 @@ import {
   XMarkIcon,
   UserMinusIcon,
 } from '@heroicons/react/24/solid'
-import Logo from '../Asset/Logo Dlillah.png'
+import Logo from '../Asset/Beki.png'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: HomeIcon, current: false },
@@ -111,14 +111,14 @@ export default function Sidebar() {
                           href={item.name === 'Logout' ? route('logout') : item}
                           className={classNames(
                             item.current
-                              ? 'bg-green-200 text-green-700'
-                              : 'text-green-700 hover:bg-green-50 hover:text-green-700',
+                              ? 'bg-blue-200 text-blue-700'
+                              : 'text-blue-700 hover:bg-blue-50 hover:text-blue-700',
                             'group flex items-center px-2 py-2 text-base font-medium rounded-md'
                           )}
                         >
                           <item.icon
                             className={classNames(
-                              item.current ? 'text-green-700' : 'text-green-700 group-hover:text-green-700',
+                              item.current ? 'text-blue-700' : 'text-blue-700 group-hover:text-blue-700',
                               'mr-4 flex-shrink-0 h-6 w-6'
                             )}
                             aria-hidden="true"
@@ -138,7 +138,7 @@ export default function Sidebar() {
         {/* Static sidebar for desktop */}
         <div className="hidden md:fixed md:inset-y-0 md:flex md:w-80 md:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-green-500">
+          <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-blue-500">
             <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
               <div className="flex justify-center flex-shrink-0 items-center px-4">
                 <img
@@ -147,13 +147,13 @@ export default function Sidebar() {
                   alt="Your Company"
                 />
               </div>
-              <nav className="mt-5 px-3 flex-1 space-y-1 bg-green-500 ">
+              <nav className="mt-5 px-3 flex-1 space-y-1 bg-blue-500 ">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-gray-800 text-white' : 'text-white hover:bg-green-200 hover:text-white',
+                      item.current ? 'bg-gray-800 text-white' : 'text-white hover:bg-blue-200 hover:text-white',
                       'group flex items-center px-2 py-2 text-base font-medium '
                     )}
                   >
